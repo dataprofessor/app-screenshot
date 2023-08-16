@@ -1,8 +1,8 @@
 import streamlit as st
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 st.title('🎈 App Screenshot')
 
@@ -12,33 +12,20 @@ app_name = app_url.replace('https://','').replace('.streamlit.app','')
 st.write(app_url)
 st.write(app_name)
 
-options = webdriver.ChromeOptions()
+
+
+@st.experimental_singleton
+def get_driver():
+    return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
+options = Options()
+options.add_argument('--disable-gpu')
 options.add_argument('--headless')
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage')
-options.add_argument(f"--window-size=1290x550")
 
-# User agent string for Chrome on Mac OSX
-#mac_user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
-#options.add_argument(f"user-agent={mac_user_agent}")
+driver = get_driver()
+driver.get("https://langchain-quickstart.streamlit.app/~/+/")
 
-with webdriver.Chrome(options=options) as driver:
-    driver.get(f'{app_url}/~/+/')
-
-    time.sleep(10)
-    
-    # Explicitly wait for an essential element to ensure content is loaded
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-
-    # Get scroll height and width
-    scroll_width = driver.execute_script('return document.body.parentNode.scrollWidth')
-    scroll_height = driver.execute_script('return document.body.parentNode.scrollHeight')
-
-    # Set window size
-    driver.set_window_size(scroll_width, scroll_height)
-
-    # Now, capture the screenshot
-    driver.save_screenshot('screenshot.png')
+st.code(driver.page_source)
 
 
 
