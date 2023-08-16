@@ -45,14 +45,14 @@ driver.set_window_size(scroll_width, scroll_height)
 # Now, capture the screenshot
 driver.save_screenshot('screenshot.png')
 
-st.code(driver.page_source)
+#st.code(driver.page_source)
 
 
 
-#with open("screenshot.png", "rb") as file:
-#    btn = st.download_button(
-#            label="Download image",
-#            data=file,
-#            file_name=f"{app_name}.png",
-#            mime="image/png"
-#          )
+with open("screenshot.png", "rb") as file:
+    btn = st.download_button(
+            label="Download image",
+            data=file,
+            file_name=f"{app_name}.png",
+            mime="image/png"
+          )
