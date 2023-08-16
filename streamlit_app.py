@@ -9,6 +9,9 @@ st.title('🎈 App Screenshot')
 app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').strip('/')
 app_name = app_url.lstrip('https://').rstrip('.streamlit.app')
 
+st.write(app_url)
+st.write(app_name)
+
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
