@@ -42,10 +42,10 @@ with webdriver.Chrome(options=options) as driver:
 
 
 
-with open("screenshot.png", "rb") as file:
-    btn = st.download_button(
-            label="Download image",
-            data=file,
-            file_name=f"{app_name}.png",
-            mime="image/png"
-          )
+#with open("screenshot.png", "rb") as file:
+#    btn = st.download_button(
+#            label="Download image",
+#            data=file,
+#            file_name=f"{app_name}.png",
+#            mime="image/png"
+#          )
