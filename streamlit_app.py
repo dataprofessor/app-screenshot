@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 st.title('🎈 App Screenshot')
 
 app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').rstrip('/')
-app_name = app_url.lstrip('https://').rstrip('.streamlit.app')
+app_name = app_url.lstrip('https://')
 
 st.write(app_url)
 st.write(app_name)
