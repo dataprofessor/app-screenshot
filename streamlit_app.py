@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -48,6 +49,8 @@ driver.save_screenshot('screenshot.png')
 #st.code(driver.page_source)
 
 
+with Image.open('screenshot.png') as image:
+    st.image(image)
 
 with open("screenshot.png", "rb") as file:
     btn = st.download_button(
