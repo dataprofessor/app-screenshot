@@ -14,12 +14,7 @@ st.title('🎈 App Screenshot')
 app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').rstrip('/')
 app_name = app_url.replace('https://','').replace('.streamlit.app','')
 
-st.write(app_url)
-st.write(app_name)
-
-
-
-@st.experimental_singleton
+@st.cache_resource
 def get_driver():
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
