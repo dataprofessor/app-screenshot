@@ -9,7 +9,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+st.set_page_config(page_title="🎈 App Screenshot")
 st.title('🎈 App Screenshot')
+st.write('An app for taking screenshot of a Streamlit app.')
 
 app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').rstrip('/')
 app_name = app_url.replace('https://','').replace('.streamlit.app','')
