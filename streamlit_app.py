@@ -18,7 +18,7 @@ app_name = app_url.replace('https://','').replace('.streamlit.app','')
 
 @st.cache_resource
 def get_driver():
-    return webdriver.Chrome(service=Service(ChromeDriverManager(version="116.0.5845.110").install()), options=options)
+    return webdriver.Chrome(service=Service(ChromeDriverManager(version="114").install()), options=options)
 
 if app_url:
     options = Options()
