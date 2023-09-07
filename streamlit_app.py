@@ -33,7 +33,7 @@ def get_driver():
 
 if app_url:
     driver = get_driver()
-    driver.get("https://langchain-quickstart.streamlit.app/~/+/")
+    driver.get(f"{app_url}/~/+/")
     
     time.sleep(10)
         
