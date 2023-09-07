@@ -18,14 +18,20 @@ app_name = app_url.replace('https://','').replace('.streamlit.app','')
 
 @st.cache_resource
 def get_driver():
-    return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
-if app_url:
-    options = Options()
+    #options = Options()
+    options = webdriver.ChromeOptions()
+    
     options.add_argument('--disable-gpu')
     options.add_argument('--headless')
     options.add_argument(f"--window-size=1290x550")
+
+    service = Service()
+    driver = webdriver.Chrome(service=service, options=options)
     
+    #return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    return webdriver.Chrome(service=service, options=options)
+
+if app_url:
     driver = get_driver()
     driver.get("https://langchain-quickstart.streamlit.app/~/+/")
     
