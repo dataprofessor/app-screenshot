@@ -42,11 +42,11 @@ if app_url:
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
     
     # Get scroll height and width
-    scroll_width = driver.execute_script('return document.body.parentNode.scrollWidth')
-    scroll_height = driver.execute_script('return document.body.parentNode.scrollHeight')
+    #scroll_width = driver.execute_script('return document.body.parentNode.scrollWidth')
+    #scroll_height = driver.execute_script('return document.body.parentNode.scrollHeight')
     
     # Set window size
-    driver.set_window_size(scroll_width, scroll_height)
+    #driver.set_window_size(scroll_width, scroll_height)
     
     # Now, capture the screenshot
     driver.save_screenshot('screenshot.png')
