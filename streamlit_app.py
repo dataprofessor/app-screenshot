@@ -25,7 +25,7 @@ def get_driver():
     options.add_argument('--headless')
     #options.add_argument(f"--window-size=1290x550")
     ## options.add_argument(f"--window-size=1100x550")
-    options.add_argument(f"--window-size=1000x550")
+    options.add_argument(f"--window-size=1000x540")
     
     service = Service()
     driver = webdriver.Chrome(service=service, options=options)
