@@ -102,10 +102,27 @@ if file_exists:
     # Crop top portion of app_img
     border = (0, 3, 0, 0) # left, top, right, bottom
     resized_app_img = ImageOps.crop(resized_app_img, border)
-    
+
+    # Add corners
     resized_app_img = add_corners(resized_app_img, 40)
-    bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
-    bg_img.save('final.png')
+
+    ##
+    w, h = resized_app_img.width, resized_app_img.height
+    shape = [(40, 40), (w + 20, h + 20)]
+  
+    # creating new Image object
+    rect_img = Image.new("RGB", (w, h))
+  
+    # create rectangle image
+    rect_img = ImageDraw.Draw(rect_img)  
+    rect_img.rectangle(shape, fill ="#FFFFFF", outline ="black")
+    ##
+
+    rect_img.paste(resized_app_img, () resized_app_img)
+    rect_img.save('final.png')
+    
+    #bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
+    #bg_img.save('final.png')
 
     st.image(bg_img)
 
