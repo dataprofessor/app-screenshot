@@ -120,8 +120,8 @@ if file_exists:
     
     # Draw the white rectangle
     draw.rectangle(rectangle_coordinates, fill='white', outline='black')
-    draw.save('rect.png')
-    st.image(draw)
+    img.save('rect.png')
+    st.image(img)
     #####
 
     #rect_img.paste(resized_app_img, (0,0), resized_app_img)
