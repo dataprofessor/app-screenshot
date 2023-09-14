@@ -95,8 +95,8 @@ if file_exists:
     st.write('app_img (w/h):', app_img.width, app_img.height)
 
     image_resize = 0.8
-    new_width = int(image.width * image_resize)
-    new_height = int(image.height * image_resize)
+    new_width = int(app_img.width * image_resize)
+    new_height = int(app_img.height * image_resize)
     resized_app_img = app_img.resize((new_width, new_height))
 
     app_img = add_corners(resized_app_img, 50)
