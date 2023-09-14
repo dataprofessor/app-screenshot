@@ -102,7 +102,7 @@ if file_exists:
     rectangle_coordinates = [(0, 0), (w + 50, h + 0)]
         
     # Draw the white rectangle
-    draw.rectangle(rectangle_coordinates, fill='#CCC')
+    draw.rectangle(rectangle_coordinates, fill='#FFFFFF')
     img = add_corners(img, 24)
     img.save('rect.png')
     ###
