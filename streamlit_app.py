@@ -1,19 +1,8 @@
-#import streamlit as st
-#import time
-#from PIL import Image
-#from selenium import webdriver
-#from selenium.webdriver.chrome.options import Options
-#from selenium.webdriver.chrome.service import Service
-#from selenium.webdriver.support.ui import WebDriverWait
-#from webdriver_manager.chrome import ChromeDriverManager
-#from selenium.webdriver.support import expected_conditions as EC
-#from selenium.webdriver.common.by import By
-
 import streamlit as st
 import time
 import psutil
 import os
-from PIL import Image
+from PIL import Image, ImageDraw
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
@@ -78,11 +67,41 @@ with st.form("my_form"):
             # Now, capture the screenshot
             driver.save_screenshot('screenshot.png')
 
+
+
+def add_corners(im, rad):
+    circle = Image.new('L', (rad * 2, rad * 2), 0)
+    draw = ImageDraw.Draw(circle)
+    draw.ellipse((0, 0, rad * 2 - 1, rad * 2 - 1), fill=255)
+    alpha = Image.new('L', im.size, 255)
+    w, h = im.size
+    alpha.paste(circle.crop((0, 0, rad, rad)), (0, 0))
+    alpha.paste(circle.crop((0, rad, rad, rad * 2)), (0, h - rad))
+    alpha.paste(circle.crop((rad, 0, rad * 2, rad)), (w - rad, 0))
+    alpha.paste(circle.crop((rad, rad, rad * 2, rad * 2)), (w - rad, h - rad))
+    im.putalpha(alpha)
+    return im
+
+
+im = add_corners(im, 100)
+im.save('tiger.png')
+
+
+
+
 file_exists = exists('screenshot.png')
 if file_exists:
+
+
+    
     with Image.open('screenshot.png') as image:
+        im = add_corners(im, 100)
+        im.save('final.png')
+
+    with Image.open('final.png') as image:
         st.image(image)
-    with open("screenshot.png", "rb") as file:
+        
+    with open("final.png", "rb") as file:
         btn = st.download_button(
             label="Download image",
             data=file,
