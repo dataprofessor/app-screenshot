@@ -91,49 +91,41 @@ if file_exists:
     bg_img = Image.open('background/background-76.jpeg')
     app_img = Image.open('screenshot.png')
 
-    st.image(app_img)
-    
-    st.write('bg_img (w/h):', bg_img.width, bg_img.height)
-    st.write('app_img (w/h):', app_img.width, app_img.height)
-
-    image_resize = 0.85
-    new_width = int(bg_img.width * image_resize)
-    new_height = int(bg_img.height * image_resize)
-    resized_app_img = app_img.resize((new_width, new_height))
-
-    # Crop top portion of app_img
-    border = (0, 3, 0, 0) # left, top, right, bottom
-    resized_app_img = ImageOps.crop(resized_app_img, border)
-
-    # Add corners
-    resized_app_img = add_corners(resized_app_img, 40)
-
-
-    #####
-    # Create a blank white image
-    w, h = resized_app_img.width, resized_app_img.height
+    # Create a blank white rectangle
+    w, h = app_img.width, app_img.height
     img = Image.new('RGB', (w, h), color='white')
-    
+      
     # Create a drawing object
     draw = ImageDraw.Draw(img)
-    
+        
     # Define the coordinates of the rectangle (left, top, right, bottom)
-    rectangle_coordinates = [(0, 0), (w + 0, h + 0)]
-    
+    rectangle_coordinates = [(0, 0), (w + 50, h + 10)]
+        
     # Draw the white rectangle
-    draw.rectangle(rectangle_coordinates, fill='white')
-    img = add_corners(img, 40)
-    #img.save('rect.png')
-    #st.image(img)
-    #####
+    draw.rectangle(rectangle_coordinates, fill='#CCC')
+    img = add_corners(img, 24)
+    img.save('rect.png')
+    ###
+    # Resize app image
+    image_resize = 0.95
+    new_width = int(img.width * image_resize)
+    new_height = int(img.height * image_resize)
+    resized_app_img = app_img.resize((new_width, new_height))
+    
+    # Crop top portion of app_img
+    border = (0, 4, 0, 0) # left, top, right, bottom
+    resized_app_img = ImageOps.crop(resized_app_img, border)
+    
+    # Add corners
+    resized_app_img = add_corners(resized_app_img, 24)
+    
+    img.paste(resized_app_img, (int(resized_app_img.width*0.025),int(resized_app_img.width*0.035)), resized_app_img)
+    img.save('app_rect.png')
 
-    img.paste(resized_app_img, (int(resized_app_img.width*0.03),int(resized_app_img.width*0.03)), resized_app_img)
-    img.save('app.png')
+    
+    
 
-    app_rect_img = Image.open('app.png')
-    st.image(app_rect_img)
-
-    #bg_img.paste(img, ( int(bg_img.width*0.06), int(bg_img.width*0.08) ), img)
+    bg_img.paste(img, ( int(bg_img.width*0.06), int(bg_img.width*0.08) ), img)
     
     #bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
     #bg_img.save('final.png')
