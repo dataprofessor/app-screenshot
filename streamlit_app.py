@@ -130,7 +130,7 @@ if file_exists:
     resized_img = img.resize((new_width_2, new_height_2))
     
 
-    bg_img.paste(resized_img, ( int(bg_img.width*0.04), int(bg_img.width*0.04) ), resized_img)
+    bg_img.paste(resized_img, ( int(bg_img.width*0.05), int(bg_img.width*0.05) ), resized_img)
     
     #bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
     #bg_img.save('final.png')
