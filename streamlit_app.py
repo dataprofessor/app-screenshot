@@ -16,6 +16,13 @@ st.write('An app for taking screenshot of a Streamlit app.')
 app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').rstrip('/')
 app_name = app_url.replace('https://','').replace('.streamlit.app','')
 
+# Settings
+
+with st.sidebar:
+    st.header('⚙️ Settings')
+    width = st.slidebar('Width', 426, 3840, 1000)
+    height = st.slidebar('Height', 240, 2160, 540)
+
 @st.cache_resource
 def get_driver():
     #options = Options()
@@ -25,7 +32,7 @@ def get_driver():
     options.add_argument('--headless')
     #options.add_argument(f"--window-size=1290x550")
     ## options.add_argument(f"--window-size=1100x550")
-    options.add_argument(f"--window-size=1000x540")
+    options.add_argument(f"--window-size={width}x{height}")
     
     service = Service()
     driver = webdriver.Chrome(service=service, options=options)
