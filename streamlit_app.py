@@ -36,9 +36,9 @@ with st.sidebar:
     height = st.slider('Height', 240, 2160, 540)
 
     # Getting % usage of virtual_memory ( 3rd field)
-    st.caption(f'RAM memory % used: {psutil.virtual_memory()[2]}')
+    st.caption(f'RAM used (%_): {psutil.virtual_memory()[2]}')
     # Getting usage of virtual_memory in GB ( 4th field)
-    st.caption(f'RAM Used (GB): {psutil.virtual_memory()[3]/1000000000}')
+    st.caption(f'RAM used (GB): {psutil.virtual_memory()[3]/1000000000}')
 
 @st.cache_resource
 def get_driver():
