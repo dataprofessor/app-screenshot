@@ -20,7 +20,7 @@ from selenium.webdriver.common.by import By
 
 st.set_page_config(page_title="🎈 App Screenshot")
 st.title('🎈 App Screenshot')
-st.write('An app for taking screenshot of a Streamlit app.')
+st.warning('An app for taking screenshot of a Streamlit app.')
 
 # Input URL
 app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').rstrip('/')
