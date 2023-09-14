@@ -78,3 +78,5 @@ if app_url:
                 file_name=f"{app_name}.png",
                 mime="image/png"
               )
+        if btn:
+            st.cache_resource.clear()
