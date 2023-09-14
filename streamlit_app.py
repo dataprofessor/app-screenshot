@@ -46,7 +46,9 @@ with st.sidebar:
     height = st.slider('Height', 240, 1080, 540)
 
     # Getting % usage of virtual_memory ( 3rd field)
-    st.caption(f'RAM used (%): {psutil.virtual_memory()[2]}')
+    ram_usage = psutil.virtual_memory()[2]
+    st.caption(f'RAM used (%): {ram_usage}')
+    st.progress(ram_usage)
 
 
 # Input URL
