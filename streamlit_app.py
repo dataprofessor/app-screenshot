@@ -106,18 +106,23 @@ if file_exists:
     # Add corners
     resized_app_img = add_corners(resized_app_img, 40)
 
-    ##
+
+    #####
+    # Create a blank white image
     w, h = resized_app_img.width, resized_app_img.height
-    shape = [(40, 40), (w + 20, h + 20)]
-  
-    # creating new Image object
-    rect_img = Image.new("RGB", (w, h))
-  
-    # create rectangle image
-    rect_img = ImageDraw.Draw(rect_img)
-    rect_img = rect_img.rectangle(shape, fill ="#FFFFFF", outline ="black")
-    rect_img.save('final.png')
-    ##
+    img = Image.new('RGB', (w, h), color='white')
+    
+    # Create a drawing object
+    draw = ImageDraw.Draw(img)
+    
+    # Define the coordinates of the rectangle (left, top, right, bottom)
+    rectangle_coordinates = [(40, 40), (w + 20, h + 20)]
+    
+    # Draw the white rectangle
+    draw.rectangle(rectangle_coordinates, fill='white', outline='black')
+    draw.save('rect.png')
+    st.image(draw)
+    #####
 
     #rect_img.paste(resized_app_img, (0,0), resized_app_img)
     #rect_img.save('final.png')
