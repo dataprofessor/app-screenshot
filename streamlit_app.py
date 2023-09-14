@@ -99,6 +99,9 @@ if file_exists:
     new_height = int(bg_img.height * image_resize)
     resized_app_img = app_img.resize((new_width, new_height))
 
+    # Crop top portion of app_img
+    resized_app_img = resized_app_img.crop((0, 10, 0, 0))
+    
     resized_app_img = add_corners(resized_app_img, 50)
     bg_img.paste(resized_app_img, ( int(bg_img.width*0.05), int(bg_img.width*0.06) ), resized_app_img)
     bg_img.save('final.png')
