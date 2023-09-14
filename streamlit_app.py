@@ -51,7 +51,7 @@ if app_url:
     if app_url.endswith('streamlit.app'):
         driver.get(f"{app_url}/~/+/")
     else:
-        driver.get(app_url")
+        driver.get(app_url)
     
     time.sleep(2)
         
