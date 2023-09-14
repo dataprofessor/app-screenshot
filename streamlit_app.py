@@ -15,6 +15,7 @@ from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 st.set_page_config(page_title="🎈 App Screenshot")
 st.title('🎈 App Screenshot')
