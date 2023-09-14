@@ -1,6 +1,7 @@
 import streamlit as st
 import time
 import psutil
+import random
 import os
 from PIL import Image, ImageDraw, ImageOps
 from selenium import webdriver
@@ -88,7 +89,10 @@ def add_corners(im, rad):
 
 file_exists = exists('screenshot.png')
 if file_exists:
-    bg_img = Image.open('background/background-76.jpeg')
+    bg_random = random.randint(1,100)
+    if bg_random < 10:
+        bg_random = '0' + str(bg_random)
+    bg_img = Image.open(f'background/background-{bg_random}.jpeg')
     app_img = Image.open('screenshot.png')
 
     # Create a blank white rectangle
