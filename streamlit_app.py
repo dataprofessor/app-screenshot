@@ -19,6 +19,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from os.path import exists
 
 st.set_page_config(page_title="🎈 App Screenshot")
 st.title('🎈 App Screenshot')
@@ -82,16 +83,18 @@ with st.form("my_form"):
             
             # Now, capture the screenshot
             driver.save_screenshot('screenshot.png')
+
+file_exists = exists('screenshot.png')
+if file_exists:
+    with Image.open('screenshot.png') as image:
+        st.image(image)
             
-            with Image.open('screenshot.png') as image:
-                st.image(image)
-            
-            with open("screenshot.png", "rb") as file:
-                btn = st.download_button(
-                        label="Download image",
-                        data=file,
-                        file_name=f"{app_name}.png",
-                        mime="image/png"
-                      )
-                if btn:
-                    st.cache_resource.clear()
+    with open("screenshot.png", "rb") as file:
+        btn = st.download_button(
+            label="Download image",
+            data=file,
+            file_name=f"{app_name}.png",
+            mime="image/png"
+            )
+        if btn:
+            st.cache_resource.clear()
