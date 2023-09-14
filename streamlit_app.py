@@ -125,13 +125,13 @@ if file_exists:
     #st.image(img)
     #####
 
-    img.paste(resized_app_img, (int(img.width*0.03),int(img.width*0.03)), resized_app_img)
+    img.paste(resized_app_img, (int(resized_app_img.width*0.03),int(resized_app_img.width*0.03)), resized_app_img)
     img.save('final.png')
 
     app_rect_img = Image.open('app.png')
     st.image(app_rect_img)
 
-    bg_img.paste(img, ( int(bg_img.width*0.06), int(bg_img.width*0.08) ), img)
+    #bg_img.paste(img, ( int(bg_img.width*0.06), int(bg_img.width*0.08) ), img)
     
     #bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
     #bg_img.save('final.png')
