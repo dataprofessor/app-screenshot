@@ -118,7 +118,7 @@ if file_exists:
     rect_img.rectangle(shape, fill ="#FFFFFF", outline ="black")
     ##
 
-    rect_img.paste(resized_app_img, () resized_app_img)
+    rect_img.paste(resized_app_img, (0,0), resized_app_img)
     rect_img.save('final.png')
     
     #bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
