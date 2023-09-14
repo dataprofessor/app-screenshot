@@ -1,13 +1,19 @@
+#import streamlit as st
+#import time
+#from PIL import Image
+#from selenium import webdriver
+#from selenium.webdriver.chrome.options import Options
+#from selenium.webdriver.chrome.service import Service
+#from selenium.webdriver.support.ui import WebDriverWait
+#from webdriver_manager.chrome import ChromeDriverManager
+#from selenium.webdriver.support import expected_conditions as EC
+#from selenium.webdriver.common.by import By
+
 import streamlit as st
-import time
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 
 st.set_page_config(page_title="🎈 App Screenshot")
 st.title('🎈 App Screenshot')
