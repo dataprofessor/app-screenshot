@@ -83,11 +83,6 @@ def add_corners(im, rad):
     return im
 
 
-im = add_corners(im, 100)
-im.save('tiger.png')
-
-
-
 
 file_exists = exists('screenshot.png')
 if file_exists:
@@ -95,7 +90,7 @@ if file_exists:
 
     
     with Image.open('screenshot.png') as image:
-        im = add_corners(im, 100)
+        im = add_corners(image, 100)
         im.save('final.png')
 
     with Image.open('final.png') as image:
