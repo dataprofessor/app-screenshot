@@ -2,7 +2,7 @@ import streamlit as st
 import time
 import psutil
 import os
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageOps
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
@@ -100,7 +100,8 @@ if file_exists:
     resized_app_img = app_img.resize((new_width, new_height))
 
     # Crop top portion of app_img
-    resized_app_img = resized_app_img.crop((0, 10, 0, 0))
+    border = (0, 30, 0, 0) # left, top, right, bottom
+    resized_app_img = ImageOps.crop(resized_app_img, border)
     
     resized_app_img = add_corners(resized_app_img, 50)
     bg_img.paste(resized_app_img, ( int(bg_img.width*0.05), int(bg_img.width*0.06) ), resized_app_img)
