@@ -91,7 +91,7 @@ if file_exists:
     bg_img = Image.open('background/background-76.jpeg')
     app_img = Image.open('screenshot.png')
 
-    im = add_corners(app_image, 50)
+    im = add_corners(app_img, 50)
     bg_img.paste(app_img, (0, 0), app_img)
     bg_img.save('final')
 
