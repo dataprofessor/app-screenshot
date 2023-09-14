@@ -104,7 +104,7 @@ if file_exists:
     resized_app_img = ImageOps.crop(resized_app_img, border)
     
     resized_app_img = add_corners(resized_app_img, 40)
-    bg_img.paste(resized_app_img, ( int(bg_img.width*0.05), int(bg_img.width*0.06) ), resized_app_img)
+    bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
     bg_img.save('final.png')
 
     st.image(bg_img)
