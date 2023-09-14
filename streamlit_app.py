@@ -91,6 +91,8 @@ if file_exists:
     bg_img = Image.open('background/background-76.jpeg')
     app_img = Image.open('screenshot.png')
 
+    st.image(app_img)
+    
     st.write('bg_img (w/h):', bg_img.width, bg_img.height)
     st.write('app_img (w/h):', app_img.width, app_img.height)
 
