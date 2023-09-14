@@ -48,7 +48,8 @@ def get_driver():
 
 if app_url:
     driver = get_driver()
-    driver.get(f"{app_url}/~/+/")
+    if app_url.endswith('streamlit.app'):
+        driver.get(f"{app_url}/~/+/")
     
     time.sleep(2)
         
