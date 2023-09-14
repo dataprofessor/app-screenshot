@@ -2,3 +2,4 @@ streamlit
 selenium==4.11.2
 webdriver-manager
 psutil
+seleniumrequests
