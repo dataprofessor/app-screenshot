@@ -100,7 +100,7 @@ if file_exists:
     resized_app_img = app_img.resize((new_width, new_height))
 
     # Crop top portion of app_img
-    border = (0, 30, 0, 0) # left, top, right, bottom
+    border = (0, 5, 0, 0) # left, top, right, bottom
     resized_app_img = ImageOps.crop(resized_app_img, border)
     
     resized_app_img = add_corners(resized_app_img, 50)
