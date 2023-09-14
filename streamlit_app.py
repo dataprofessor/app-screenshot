@@ -95,8 +95,10 @@ if file_exists:
     bg_img.paste(app_img, (0, 0), app_img)
     bg_img.save('final.png')
 
-    with Image.open('final.png') as image:
-        st.image(image)
+    st.image(bg_img)
+
+    #with Image.open('final.png') as image:
+    #    st.image(image)
         
     with open("final.png", "rb") as file:
         btn = st.download_button(
@@ -109,4 +111,4 @@ if file_exists:
             os.remove('screenshot.png')
 
 
-st.image(bg_img)
+
