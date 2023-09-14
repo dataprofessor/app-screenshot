@@ -93,7 +93,7 @@ if file_exists:
 
     app_img = add_corners(app_img, 50)
     bg_img.paste(app_img, (0, 0), app_img)
-    bg_img.save('final')
+    bg_img.save('final.png')
 
     with Image.open('final.png') as image:
         st.image(image)
