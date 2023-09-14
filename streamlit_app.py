@@ -48,8 +48,6 @@ with st.sidebar:
     # Getting % usage of virtual_memory ( 3rd field)
     ram_usage = psutil.virtual_memory()[2]
     st.caption(f'RAM used (%): {ram_usage}')
-    st.progress(ram_usage)
-
 
 # Input URL
 with st.form("my_form"):
@@ -58,11 +56,6 @@ with st.form("my_form"):
     
     submitted = st.form_submit_button("Submit")
     if submitted:
-
-
-
-
-
         if app_url:
             driver = get_driver()
             if app_url.endswith('streamlit.app'):
@@ -89,7 +82,6 @@ file_exists = exists('screenshot.png')
 if file_exists:
     with Image.open('screenshot.png') as image:
         st.image(image)
-            
     with open("screenshot.png", "rb") as file:
         btn = st.download_button(
             label="Download image",
