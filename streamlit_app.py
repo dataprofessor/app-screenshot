@@ -124,13 +124,13 @@ if file_exists:
 
     ###
     # Resize app image
-    image_resize_2 = 0.92
+    image_resize_2 = 0.95
     new_width_2 = int(bg_img.width * image_resize_2)
     new_height_2 = int(bg_img.height * image_resize_2)
     resized_img = img.resize((new_width_2, new_height_2))
     
 
-    bg_img.paste(resized_img, ( int(bg_img.width*0.06), int(bg_img.width*0.08) ), resized_img)
+    bg_img.paste(resized_img, ( int(bg_img.width*0.03), int(bg_img.width*0.03) ), resized_img)
     
     #bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
     #bg_img.save('final.png')
