@@ -13,11 +13,12 @@ st.set_page_config(page_title="🎈 App Screenshot")
 st.title('🎈 App Screenshot')
 st.write('An app for taking screenshot of a Streamlit app.')
 
+# Input URL
 app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').rstrip('/')
 app_name = app_url.replace('https://','').replace('.streamlit.app','')
+st.divider()
 
 # Settings
-
 with st.sidebar:
     st.header('⚙️ Settings')
     width = st.slider('Width', 426, 3840, 1000)
@@ -25,19 +26,15 @@ with st.sidebar:
 
 @st.cache_resource
 def get_driver():
-    #options = Options()
     options = webdriver.ChromeOptions()
     
     options.add_argument('--disable-gpu')
     options.add_argument('--headless')
-    #options.add_argument(f"--window-size=1290x550")
-    ## options.add_argument(f"--window-size=1100x550")
     options.add_argument(f"--window-size={width}x{height}")
     
     service = Service()
     driver = webdriver.Chrome(service=service, options=options)
     
-    #return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     return webdriver.Chrome(service=service, options=options)
 
 if app_url:
@@ -58,9 +55,6 @@ if app_url:
     
     # Now, capture the screenshot
     driver.save_screenshot('screenshot.png')
-    
-    #st.code(driver.page_source)
-    
     
     with Image.open('screenshot.png') as image:
         st.image(image)
