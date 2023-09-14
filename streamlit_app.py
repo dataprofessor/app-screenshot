@@ -94,7 +94,7 @@ if file_exists:
     st.write('bg_img (w/h):', bg_img.width, bg_img.height)
     st.write('app_img (w/h):', app_img.width, app_img.height)
 
-    image_resize = 0.8
+    image_resize = 0.9
     new_width = int(bg_img.width * image_resize)
     new_height = int(bg_img.height * image_resize)
     resized_app_img = app_img.resize((new_width, new_height))
