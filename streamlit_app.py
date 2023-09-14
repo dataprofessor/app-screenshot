@@ -26,7 +26,7 @@ st.set_page_config(page_title="🎈 App Screenshot")
 st.title('🎈 App Screenshot')
 st.warning('An app for taking screenshot of a Streamlit app.')
 
-@st.cache_resource
+#@st.cache_resource
 def get_driver():
     options = webdriver.ChromeOptions()
     
