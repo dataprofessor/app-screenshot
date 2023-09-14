@@ -99,7 +99,7 @@ if file_exists:
     draw = ImageDraw.Draw(img)
         
     # Define the coordinates of the rectangle (left, top, right, bottom)
-    rectangle_coordinates = [(0, 0), (w + 50, h + 10)]
+    rectangle_coordinates = [(0, 0), (w + 50, h + 0)]
         
     # Draw the white rectangle
     draw.rectangle(rectangle_coordinates, fill='#CCC')
@@ -122,10 +122,15 @@ if file_exists:
     img.paste(resized_app_img, (int(resized_app_img.width*0.025),int(resized_app_img.width*0.035)), resized_app_img)
     img.save('app_rect.png')
 
-    
+    ###
+    # Resize app image
+    image_resize_2 = 0.95
+    new_width_2 = int(bg_img.width * image_resize_2)
+    new_height_2 = int(bg_img.height * image_resize_2)
+    resized_img = img.resize((new_width_2, new_height_2))
     
 
-    bg_img.paste(img, ( int(bg_img.width*0.06), int(bg_img.width*0.08) ), img)
+    bg_img.paste(resized_img, ( int(bg_img.width*0.06), int(bg_img.width*0.08) ), resized_img)
     
     #bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
     #bg_img.save('final.png')
