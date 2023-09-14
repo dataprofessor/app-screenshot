@@ -111,10 +111,10 @@ if file_exists:
     shape = [(40, 40), (w + 20, h + 20)]
   
     # creating new Image object
-    #rect_img = Image.new("RGB", (w, h))
+    rect_img = Image.new("RGB", (w, h))
   
     # create rectangle image
-    rect_img = ImageDraw.Draw(resized_app_img)
+    rect_img = ImageDraw.Draw(rect_img)
     rect_img = rect_img.rectangle(shape, fill ="#FFFFFF", outline ="black")
     rect_img.save('final.png')
     ##
