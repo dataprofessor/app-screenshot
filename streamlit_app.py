@@ -124,7 +124,7 @@ if file_exists:
 
     ###
     # Resize app image
-    image_resize_2 = 0.95
+    image_resize_2 = 0.9
     new_width_2 = int(bg_img.width * image_resize_2)
     new_height_2 = int(bg_img.height * image_resize_2)
     resized_img = img.resize((new_width_2, new_height_2))
