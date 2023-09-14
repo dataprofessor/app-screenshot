@@ -116,7 +116,7 @@ if file_exists:
     draw = ImageDraw.Draw(img)
     
     # Define the coordinates of the rectangle (left, top, right, bottom)
-    rectangle_coordinates = [(0, 0), (w + 10, h + 10)]
+    rectangle_coordinates = [(0, 0), (w + 0, h + 0)]
     
     # Draw the white rectangle
     draw.rectangle(rectangle_coordinates, fill='white')
