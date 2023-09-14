@@ -12,6 +12,7 @@
 import streamlit as st
 import time
 import psutil
+import os
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -97,4 +98,4 @@ if file_exists:
             mime="image/png"
             )
         if btn:
-            st.cache_resource.clear()
+            os.remove('screenshot.png')
