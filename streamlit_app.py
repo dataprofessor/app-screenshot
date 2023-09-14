@@ -20,6 +20,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
+from webdriver_manager.chrome import ChromeDriverManager
+from seleniumrequests import Chrome
+driver = Chrome(ChromeDriverManager().install())
+
 st.set_page_config(page_title="🎈 App Screenshot")
 st.title('🎈 App Screenshot')
 st.warning('An app for taking screenshot of a Streamlit app.')
