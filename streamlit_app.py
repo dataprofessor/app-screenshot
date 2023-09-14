@@ -20,8 +20,8 @@ app_name = app_url.replace('https://','').replace('.streamlit.app','')
 
 with st.sidebar:
     st.header('⚙️ Settings')
-    width = st.slidebar('Width', 426, 3840, 1000)
-    height = st.slidebar('Height', 240, 2160, 540)
+    width = st.slider('Width', 426, 3840, 1000)
+    height = st.slider('Height', 240, 2160, 540)
 
 @st.cache_resource
 def get_driver():
