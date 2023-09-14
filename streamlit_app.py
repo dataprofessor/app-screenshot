@@ -53,8 +53,6 @@ with st.sidebar:
 with st.form("my_form"):
     app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').rstrip('/')
     app_name = app_url.replace('https://','').replace('.streamlit.app','')
-
-    st.divider()
     
     submitted = st.form_submit_button("Submit")
     if submitted:
