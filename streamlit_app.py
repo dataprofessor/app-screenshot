@@ -126,8 +126,10 @@ if file_exists:
     #####
 
     img.paste(resized_app_img, (int(img.width*0.06),int(img.width*0.06)), resized_app_img)
-    img.save('final.png')
-    st.image(img)
+    #img.save('final.png')
+    #st.image(img)
+
+    bg_img.paste(img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), img)
     
     #bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
     #bg_img.save('final.png')
