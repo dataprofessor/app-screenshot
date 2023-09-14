@@ -38,7 +38,7 @@ with st.sidebar:
     # Getting % usage of virtual_memory ( 3rd field)
     st.caption(f'RAM used (%): {psutil.virtual_memory()[2]}')
     # Getting usage of virtual_memory in GB ( 4th field)
-    st.caption(f'RAM used (GB): {psutil.virtual_memory()[3]/1000000000}')
+    st.caption(f'RAM used (GB): {round(psutil.virtual_memory()[3]/1000000000, 2)}')
 
 @st.cache_resource
 def get_driver():
