@@ -115,7 +115,7 @@ if file_exists:
   
     # create rectangle image
     rect_img = ImageDraw.Draw(rect_img)  
-    rect_img.rectangle(shape, fill ="#FFFFFF", outline ="black")
+    rect_img = rect_img.rectangle(shape, fill ="#FFFFFF", outline ="black")
     ##
 
     rect_img.paste(resized_app_img, (0,0), resized_app_img)
