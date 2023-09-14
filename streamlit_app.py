@@ -124,7 +124,7 @@ if file_exists:
     #st.image(img)
     #####
 
-    img.paste(resized_app_img, (0,0), resized_app_img)
+    img.paste(resized_app_img, (int(img.width*0.06),int(img.width*0.06)), resized_app_img)
     img.save('final.png')
     st.image(img)
     
