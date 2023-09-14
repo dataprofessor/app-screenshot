@@ -89,8 +89,6 @@ def add_corners(im, rad):
 file_exists = exists('screenshot.png')
 if file_exists:
 
-
-    
     with Image.open('screenshot.png') as image:
         im = add_corners(image, 50)
         im.save('final.png')
@@ -107,3 +105,6 @@ if file_exists:
             )
         if btn:
             os.remove('screenshot.png')
+
+bg_img = Image.open('background/background-01.jpeg')
+st.image(bg_img)
