@@ -10,6 +10,7 @@
 #from selenium.webdriver.common.by import By
 
 import streamlit as st
+import time
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
