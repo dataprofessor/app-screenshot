@@ -42,8 +42,8 @@ def get_driver():
 # Settings
 with st.sidebar:
     st.header('⚙️ Settings')
-    width = st.slider('Width', 426, 3840, 1000)
-    height = st.slider('Height', 240, 2160, 540)
+    width = st.slider('Width', 426, 1920, 1000)
+    height = st.slider('Height', 240, 1080, 540)
 
     # Getting % usage of virtual_memory ( 3rd field)
     st.caption(f'RAM used (%): {psutil.virtual_memory()[2]}')
