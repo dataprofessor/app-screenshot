@@ -31,6 +31,29 @@ def get_driver():
     
     return webdriver.Chrome(service=service, options=options)
 
+def get_screenshot(input_url):
+    driver = get_driver()
+    if app_url.endswith('streamlit.app'):
+        driver.get(f"{app_url}/~/+/")
+    else:
+        driver.get(app_url)
+            
+    time.sleep(2)
+            
+    # Explicitly wait for an essential element to ensure content is loaded
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+            
+    # Get scroll height and width
+    #scroll_width = driver.execute_script('return document.body.parentNode.scrollWidth')
+    #scroll_height = driver.execute_script('return document.body.parentNode.scrollHeight')
+            
+    # Set window size
+    #driver.set_window_size(scroll_width, scroll_height)
+            
+    # Now, capture the screenshot
+    driver.save_screenshot('screenshot.png')
+
+
 # Settings
 with st.sidebar:
     st.header('⚙️ Settings')
@@ -57,26 +80,7 @@ with st.form("my_form"):
     submitted = st.form_submit_button("Submit")
     if submitted:
         if app_url:
-            driver = get_driver()
-            if app_url.endswith('streamlit.app'):
-                driver.get(f"{app_url}/~/+/")
-            else:
-                driver.get(app_url)
-            
-            time.sleep(2)
-            
-            # Explicitly wait for an essential element to ensure content is loaded
-            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-            
-            # Get scroll height and width
-            #scroll_width = driver.execute_script('return document.body.parentNode.scrollWidth')
-            #scroll_height = driver.execute_script('return document.body.parentNode.scrollHeight')
-            
-            # Set window size
-            #driver.set_window_size(scroll_width, scroll_height)
-            
-            # Now, capture the screenshot
-            driver.save_screenshot('screenshot.png')
+            get_screenshot(app_url)
 
 
 
