@@ -174,7 +174,7 @@ if file_exists:
             ###
 from selenium import webdriver
 
-driver = webdriver.Firefox()
+driver = get_driver()
 driver.get('https://app-starter-kit.streamlit.app/~/+/')
 
 ids = driver.find_elements_by_xpath('//*[@id]')
