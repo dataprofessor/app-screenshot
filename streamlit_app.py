@@ -135,9 +135,7 @@ if file_exists:
     
 
     bg_img.paste(resized_img, ( int(bg_img.width*0.05), int(bg_img.width*0.06) ), resized_img)
-    
-    #bg_img.paste(resized_app_img, ( int(bg_img.width*0.06), int(bg_img.width*0.07) ), resized_app_img)
-    #bg_img.save('final.png')
+    bg_img.save('final.png')
 
     st.image(bg_img)
 
@@ -153,6 +151,7 @@ if file_exists:
             )
         if btn:
             os.remove('screenshot.png')
+            os.remove('final.png')
 
 
 
