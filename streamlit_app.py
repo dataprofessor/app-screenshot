@@ -31,7 +31,7 @@ def get_driver():
     
     return webdriver.Chrome(service=service, options=options)
 
-def get_screenshot(input_url):
+def get_screenshot(app_url):
     driver = get_driver()
     if app_url.endswith('streamlit.app'):
         driver.get(f"{app_url}/~/+/")
