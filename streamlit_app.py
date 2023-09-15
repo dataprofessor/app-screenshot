@@ -171,14 +171,3 @@ if file_exists:
             os.remove('final.png')
 
 
-            ###
-from selenium import webdriver
-
-driver = get_driver()
-driver.get('https://app-starter-kit.streamlit.app/~/+/')
-
-ids = driver.find_elements_by_xpath('//*[@id]')
-for ii in ids:
-    #print ii.tag_name
-    st.write(ii.get_attribute('id'))    # id name as string
-            ###
