@@ -54,36 +54,6 @@ def get_screenshot(input_url):
     driver.save_screenshot('screenshot.png')
 
 
-# Settings
-with st.sidebar:
-    st.header('⚙️ Settings')
-
-    st.subheader('Image Resolution')
-    width = st.slider('Width', 426, 1920, 1000)
-    height = st.slider('Height', 240, 1080, 540)
-
-    with st.expander('Streamlit logo'):
-        streamlit_logo = st.checkbox('Add Streamlit logo', value=True, key='streamlit_logo')
-        logo_width = st.slider('Image width', 0, 500, 100, step=10)
-        logo_vertical_placement = st.slider('Vertical placement', 0, 1000, 670, step=10)
-        logo_horizontal_placement = st.slider('Horizontal placement', 0, 1800, 80, step=10)
-        
-    # Getting % usage of virtual_memory ( 3rd field)
-    ram_usage = psutil.virtual_memory()[2]
-    st.caption(f'RAM used (%): {ram_usage}')
-
-# Input URL
-with st.form("my_form"):
-    app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').rstrip('/')
-    app_name = app_url.replace('https://','').replace('.streamlit.app','')
-    
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-        if app_url:
-            get_screenshot(app_url)
-
-
-
 def add_corners(im, rad):
     circle = Image.new('L', (rad * 2, rad * 2), 0)
     draw = ImageDraw.Draw(circle)
@@ -99,10 +69,7 @@ def add_corners(im, rad):
     im.putalpha(alpha)
     return im
 
-
-
-file_exists = exists('screenshot.png')
-if file_exists:
+def generate_app_image():
     bg_random = random.randint(1,100)
     if bg_random < 10:
         bg_random = '0' + str(bg_random)
@@ -162,7 +129,46 @@ if file_exists:
 
     #with Image.open('final.png') as image:
     #    st.image(image)
+
+
+# Settings
+with st.sidebar:
+    st.header('⚙️ Settings')
+
+    st.subheader('Image Resolution')
+    width = st.slider('Width', 426, 1920, 1000)
+    height = st.slider('Height', 240, 1080, 540)
+
+    with st.expander('Streamlit logo'):
+        streamlit_logo = st.checkbox('Add Streamlit logo', value=True, key='streamlit_logo')
+        logo_width = st.slider('Image width', 0, 500, 100, step=10)
+        logo_vertical_placement = st.slider('Vertical placement', 0, 1000, 670, step=10)
+        logo_horizontal_placement = st.slider('Horizontal placement', 0, 1800, 80, step=10)
         
+    # Getting % usage of virtual_memory ( 3rd field)
+    ram_usage = psutil.virtual_memory()[2]
+    st.caption(f'RAM used (%): {ram_usage}')
+
+# Input URL
+with st.form("my_form"):
+    app_url = st.text_input('App URL', 'https://langchain-quickstart.streamlit.app').rstrip('/')
+    app_name = app_url.replace('https://','').replace('.streamlit.app','')
+    
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        if app_url:
+            get_screenshot(app_url)
+
+
+
+
+
+
+
+file_exists = exists('screenshot.png')
+if file_exists:
+    generate_app_image()
+
     with open("final.png", "rb") as file:
         btn = st.download_button(
             label="Download image",
