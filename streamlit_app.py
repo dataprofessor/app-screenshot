@@ -32,9 +32,17 @@ def get_driver():
 # Settings
 with st.sidebar:
     st.header('⚙️ Settings')
-    width = st.slider('Width', 426, 1920, 1000)
-    height = st.slider('Height', 240, 1080, 540)
 
+    with st.subheader('Image Resolution'):
+        width = st.slider('Width', 426, 1920, 1000)
+        height = st.slider('Height', 240, 1080, 540)
+
+    with st.subheader('Streamlit logo'):
+        streamlit_logo = st.checkbox('Add Streamlit logo', value=True, key='streamlit_logo')
+        logo_width = st.slider('Image width', 0, 500, 180, step=10)
+        logo_vertical_placement = st.slider('Vertical placement', 0, 1000, 900, step=10)
+        logo_horizontal_placement = st.slider('Horizontal placement', 0, 1800, 20, step=10)
+        
     # Getting % usage of virtual_memory ( 3rd field)
     ram_usage = psutil.virtual_memory()[2]
     st.caption(f'RAM used (%): {ram_usage}')
