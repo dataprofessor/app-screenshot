@@ -37,7 +37,7 @@ with st.sidebar:
     width = st.slider('Width', 426, 1920, 1000)
     height = st.slider('Height', 240, 1080, 540)
 
-    st.subheader('Streamlit logo'):
+    st.subheader('Streamlit logo')
     streamlit_logo = st.checkbox('Add Streamlit logo', value=True, key='streamlit_logo')
     logo_width = st.slider('Image width', 0, 500, 180, step=10)
     logo_vertical_placement = st.slider('Vertical placement', 0, 1000, 900, step=10)
