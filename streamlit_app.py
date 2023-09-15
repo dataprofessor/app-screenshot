@@ -143,8 +143,15 @@ if file_exists:
     
 
     bg_img.paste(resized_img, ( int(bg_img.width*0.05), int(bg_img.width*0.06) ), resized_img)
-    bg_img.save('final.png')
+    # bg_img.save('final.png')
 
+
+    if streamlit_logo:
+            logo_img = Image.open('streamlit-logo.png').convert('RGBA')
+            logo_img.thumbnail([sys.maxsize, logo_width], Resampling.LANCZOS)
+            bg_img.paste(logo_img, (logo_horizontal_placement, logo_vertical_placement), logo_img)
+            bg_img.save('final.png')
+    
     st.image(bg_img)
 
     #with Image.open('final.png') as image:
