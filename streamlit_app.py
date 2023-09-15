@@ -3,6 +3,7 @@ import time
 import psutil
 import random
 import os
+import sys
 from PIL import Image, ImageDraw, ImageOps
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
