@@ -5,6 +5,7 @@ import random
 import os
 import sys
 from PIL import Image, ImageDraw, ImageOps
+from PIL.Image import Resampling
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
